@@ -1,7 +1,18 @@
 <?php
-include "../../check_login/conn.php";
+// include "../../check_login/conn.php";
 
 include "../../extra_php/count.php";
+$username = $_SESSION['login_id'];
+if(isset($username)){
+
+    $session = $conn->query("SELECT Name FROM users WHERE username = '$username'");
+    $row = mysqli_fetch_array($session);
+    $login_session = $logged_user = $row['Name'];
+   
+}
+else{   
+    header("Location:../../");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,8 +29,10 @@ include "../../extra_php/count.php";
     <ul class="navbar">
         <li><a href="student.php">Home</a></li>
         <li><a href="viewFacilitator.php">View Facilitator</a></li>
-        <li><a href="updateStudent.php">UpdateStudent</a></li>
+        <li><a href="viewStudent.php">View Student</a></li>
+        <li><a href="logout.php">Log out</a></li>
     </ul>
+    <h1>Hey <?php echo "$logged_user";?></h1>
     <p style="font-size: 20px;">
 
         <?php

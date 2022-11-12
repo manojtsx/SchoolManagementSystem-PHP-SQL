@@ -2,12 +2,15 @@
 include 'conn.php';
 $username  = $_POST['myusername'];
 $password = $_POST['mypassword'];
+$username = stripslashes($username);
+$password = stripslashes($password);
 
-    $sql = "SELECT Position FROM users WHERE Username ='$username' AND Pass='$password'";
-    $result = $conn->query($sql);
-    $count = mysqli_num_rows($result);
-    $type = mysqli_fetch_array($result);
-    
+
+$sql = "SELECT Position FROM users WHERE Username ='$username' AND Pass='$password'";
+$result = $conn->query($sql);
+$count = mysqli_num_rows($result);
+$type = mysqli_fetch_array($result);
+
 $control = $type['Position'];
 echo $control;
 
@@ -28,4 +31,5 @@ else if($count==1 && $control=="Student"){
 else{
     header("Location:../index.php?login=false");
 }
+$_SESSION['login_id'] = $username;
 ?> 

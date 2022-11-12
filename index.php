@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,12 +18,12 @@
             <div class="icon">
                 <h2 class="logo">sMs</h2>
                 <div class="content">
-                    <h1>Aadikavi <span>bhanubhakta</span> <br> campus </h1>
+                    <h1>School <span>Management</span> <br> System </h1>
                     <form method="POST" action="check_login/check.php" class="form">
                         <h2>Login Here</h2>
+                        
                         <input type="text" name="myusername" placeholder="Enter Username Here">
                         <input type="password" name="mypassword" placeholder="Enter password Here">
-
                         <input type="submit" value="Log In" name="login">
 
 

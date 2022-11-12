@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facilitator - Update Student</title>
+    <title>Student - Update Facilitator</title>
 </head>
 <body>
     <ul class="navbar">
-        <li><a href="facilitator.php">Home</a></li>
-        <li><a href="updateFacilitator.php">Update Facilitator</a></li>
-        <li><a href="updateStudent.php">UpdateStudent</a></li>
+        <li><a href="student.php">Home</a></li>
+        <li><a href="viewFacilitator.php">View Facilitator</a></li>
+        <li><a href="viewStudent.php">View Student</a></li>
         <li><a href="logout.php">Log out</a></li>
     </ul>
     <form method="get">
@@ -30,7 +30,7 @@
         <th>Email</th>
         <th>Class</th>
         <th>Remarks</th>
-        <th colspan="2">Services</th>
+
     </tr>
 
     <?php
@@ -56,8 +56,6 @@
         <td>" . $row['Email'] . "</td>
         <td>" . $row['Class'] . "</td>
         <td>" . $row['Grade'] . "</td>
-        <td><a href='editStudent.php?name=$row[Name]&&username=$row[Username]&&dob=$row[Date_of_birth]&&fn=$row[Father_Name]&&mn=$row[Mother_Name]&&&&pn=$row[Phone_No]&&email=$row[Email]&&class=$row[Class]&&grade=$row[Grade]'> Edit</a></td>
-        <td><a href='deleteStudent.php?name=$row[Name]&&username=$row[Username]'> Delete</a></td>
         
         
         </tr>";
@@ -85,8 +83,7 @@
         <td>" . $row['Email'] . "</td>
         <td>" . $row['Class'] . "</td>
         <td>" . $row['Grade'] . "</td>
-        <td><a href='editStudent.php?name=$row[Name]&&username=$row[Username]&&dob=$row[Date_of_birth]&&fn=$row[Father_Name]&&mn=$row[Mother_Name]&&&&pn=$row[Phone_No]&&email=$row[Email]&&class=$row[Class]&&grade=$row[Grade]'> Edit</a></td>
-        <td><a href='deleteStudent.php?username=$row[Username]'> Delete</a></td>
+        
         
         
         </tr>";

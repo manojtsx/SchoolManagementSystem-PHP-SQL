@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2022 at 05:53 PM
+-- Generation Time: Jul 05, 2022 at 02:09 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -24,24 +24,53 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `course`
+-- Table structure for table `facilitator`
 --
 
-CREATE TABLE `course` (
-  `Name` varchar(100) NOT NULL,
-  `Type` varchar(50) NOT NULL,
-  `Description` varchar(255) NOT NULL
+CREATE TABLE `facilitator` (
+  `Name` varchar(30) NOT NULL,
+  `Username` varchar(10) NOT NULL,
+  `Date_of_birth` date NOT NULL,
+  `Guardian_name` varchar(30) NOT NULL,
+  `Email` varchar(30) NOT NULL,
+  `Qualification` varchar(30) NOT NULL,
+  `T_id` int(20) NOT NULL,
+  `Phone_number` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `course`
+-- Dumping data for table `facilitator`
 --
 
-INSERT INTO `course` (`Name`, `Type`, `Description`) VALUES
-('', '', 'This is an description. HI I am writing about this subject as a good subject if it is donw clearly.'),
-('hi', 'Bachelor Degree', 'This is an description. HI I am writing about this subject as a good subject if it is donw clearly.'),
-('ICTE', 'Bachelor Degree', 'This is a good platform for every students who wants to learn with less knowledge.'),
-('ICTE', 'Bachelor Degree', 'This is a very good platform for less knowledge');
+INSERT INTO `facilitator` (`Name`, `Username`, `Date_of_birth`, `Guardian_name`, `Email`, `Qualification`, `T_id`, `Phone_number`) VALUES
+('Remon Shrestha', 'remon1', '2022-07-23', '', 'shresthanewar678@gmail.com', '', 3, '9861110801');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student`
+--
+
+CREATE TABLE `student` (
+  `Name` varchar(30) NOT NULL,
+  `Username` varchar(10) NOT NULL,
+  `Date_of_birth` date NOT NULL,
+  `Father_Name` varchar(30) NOT NULL,
+  `Mother_Name` varchar(30) NOT NULL,
+  `Grade` int(10) NOT NULL,
+  `Email` varchar(255) DEFAULT NULL,
+  `S_Id` int(20) NOT NULL,
+  `Class` int(10) DEFAULT NULL,
+  `Phone_No` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`Name`, `Username`, `Date_of_birth`, `Father_Name`, `Mother_Name`, `Grade`, `Email`, `S_Id`, `Class`, `Phone_No`) VALUES
+('Manoj Shrestha', 'manoj1', '2022-07-19', '', '', 0, 'manojbicte@gmail.com', 1, NULL, '2147483647'),
+('Manoj Shrestha', 'manoj2', '2022-07-20', 'Hari Kumar Shrestha', 'Pabitra Shrestha', 10, 'manojbicte@gmail.com', 2, 3, '9861110801');
 
 -- --------------------------------------------------------
 
@@ -54,27 +83,66 @@ CREATE TABLE `users` (
   `Username` varchar(10) NOT NULL,
   `Pass` varchar(10) NOT NULL,
   `Position` varchar(15) NOT NULL,
-  `Date` varchar(15) DEFAULT NULL,
-  `Phone_No` int(10) DEFAULT NULL,
-  `Email` varchar(30) DEFAULT NULL
+  `Date` date DEFAULT NULL,
+  `Email` varchar(30) DEFAULT NULL,
+  `u_id` int(11) NOT NULL,
+  `Phone_No` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`Name`, `Username`, `Pass`, `Position`, `Date`, `Phone_No`, `Email`) VALUES
-('Remon Shrestha', 'admin', 'admin', 'Admin', NULL, NULL, NULL),
-('Manoj Shrestha', 'teacher', 'teacher', 'Facilitator', NULL, NULL, NULL),
-('Rahul Chapagain', 'student', 'student', 'Student', NULL, NULL, NULL),
-('Nirwan Done', 'remon5', 'remon5', 'Student', '2022-06-06', 2147483647, 'shresthanewar678@gmail.com.np'),
-('Herman Hollerith', 'remon1', 'remon1', 'Student', '2022-06-06', 2147483647, 'shresthanewar678@gmail.com'),
-('Manoj Shrestha', 'remon6', 'remon6', 'Student', '2022-06-06', 2147483647, 'manojbicte@gmail.com'),
-('Derman Gregor', 'remon2', 'remon2', 'Student', '2022-06-06', 2147483647, 'shresthanewar678@gmail.com.np'),
-('Menaka lover', 'hello', 'hello', 'Student', '2022-06-19', 2147483647, 'shresthanewar678@gmail.com'),
-('Menaka lover', 'hello', 'hello', 'Student', '2022-06-19', 2147483647, 'shresthanewar678@gmail.com'),
-('Cyan Magar', 'cyan1', 'cyan1', 'Facilitator', '2017-04-17', 9816683, 'cyanmagar@gmail.com'),
-('Sagar Gaire', 'sagar1', 'sagar1', 'Facilitator', '2022-05-30', 2147483647, 'manojbicte@gmail.com');
+INSERT INTO `users` (`Name`, `Username`, `Pass`, `Position`, `Date`, `Email`, `u_id`, `Phone_No`) VALUES
+('AdminRaja', 'admin', 'admin', 'Admin', '2022-07-13', 'admin@gmail.com', 1, '9816683613'),
+('Manoj Shrestha', 'manoj1', 'manoj1', 'Student', '2022-07-19', 'manojbicte@gmail.com', 2, '9861110801'),
+('Manoj Shrestha', 'manoj2', 'manoj2', 'Student', '2022-07-20', 'manojbicte@gmail.com', 3, '9861110801'),
+('Remon Shrestha', 'remon1', 'remon1', 'Facilitator', '2022-07-23', 'shresthanewar678@gmail.com', 4, '9861110801');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `facilitator`
+--
+ALTER TABLE `facilitator`
+  ADD PRIMARY KEY (`T_id`),
+  ADD UNIQUE KEY `Username` (`Username`);
+
+--
+-- Indexes for table `student`
+--
+ALTER TABLE `student`
+  ADD PRIMARY KEY (`S_Id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`u_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `facilitator`
+--
+ALTER TABLE `facilitator`
+  MODIFY `T_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `student`
+--
+ALTER TABLE `student`
+  MODIFY `S_Id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
